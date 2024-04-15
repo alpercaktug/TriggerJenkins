@@ -1,1 +1,1 @@
-puts "test ÇILDIRACAAAAĞM"
+puts "test XCVXCVXC"
