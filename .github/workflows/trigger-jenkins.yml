@@ -1,14 +1,16 @@
 name: trigger jenkins job
 on: [push]
 jobs:
-  build:
-    name: Build
+  trigger-a-jenkins-job:
     runs-on: ubuntu-latest
     steps:
-      - name: trigger single Job
-        uses: appleboy/jenkins-action@master
+      - id: triggerjenkinsjob
+        uses: mickeygoussetorg/trigger-jenkins-job@v1
         with:
-          url: "http://167.172.105.131:8080"
-          user: "alper"
-          token: "115af9657d57f21ca38d9af1520d8a1063"
-          job: "TestAutomation"
+          jenkins-server:  "http://167.172.105.131:8080" # URL of the jenkins server. ex: http://myjenkins.acme.com:8080
+          jenkins-job: "TestAutomation" # The name of the jenkins job to run
+          jenkins-username: "alper" # user name for accessing jenkins
+          jenkins-pat: "115af9657d57f21ca38d9af1520d8a1063" # personal Access token for accessing Jenkins
+          poll-time: 10 # how often (seconds) to poll the jenkins server for results
+          timeout-value: 600 # How long (seconds) to poll before timing out the action
+          verbose: true # true/false - turns on extra logging
