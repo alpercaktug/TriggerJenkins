@@ -5,6 +5,13 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: trigger single Job
+        uses: appleboy/jenkins-action@master
+        with:
+          url: "http://167.172.105.131:8080"
+          user: "alper"
+          token: "115af9657d57f21ca38d9af1520d8a1063"
+          job: "TestAutomation"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
